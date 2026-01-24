@@ -13,7 +13,7 @@ def get_tokens(text):
 
 def valid_src_dst(groups):
     print(f"match = {groups}")
-    src = groups(1)
+    src = groups[1]
     dst = groups[3]
     valid = True
 

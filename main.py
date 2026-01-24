@@ -30,14 +30,14 @@ def start_bot():
 
 def main():
     logging.info("El programa ha iniciado")
-    # bot = start_bot()
-    # handlers.register_handlers(bot)
-    # bot.infinity_polling(
-    #     restart_on_change=False,
-    #     timeout=10,
-    #     logger_level=logging.ERROR
-    # )
-    print(TOKEN)
+    bot = start_bot()
+    handlers.register_handlers(bot)
+    bot.infinity_polling(
+        restart_on_change=False,
+        timeout=10,
+        logger_level=logging.ERROR
+    )
+    # print(TOKEN)
 
 if __name__ == "__main__":
     main()
