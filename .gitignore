@@ -1,0 +1,27 @@
+# --- Entornos Virtuales ---
+# librerías con pip
+.venv/
+venv/
+env/
+ENV/
+
+# --- Caché de Python ---
+# Archivos compilados que Python genera automáticamente
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Configuración y Secretos ---
+.env
+config.py
+instance/
+
+# --- Logs y archivos temporales ---
+*.log
+.cache/
+.pytest_cache/
+
+# --- IDEs y Editores ---
+.vscode/
+.idea/
+.DS_Store
