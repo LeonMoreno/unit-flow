@@ -5,39 +5,36 @@
 # 4 - Ejecutar: Llamar función temperatura en logic.py.
 # 5 -- Responde: Envía el resultado al usuario.
 
+import os
+import sys
+import logging
+import telebot
+from dotenv import load_dotenv
 from src import handlers
 
-import os
-import telebot
-import logging
-from dotenv import load_dotenv
-
 load_dotenv()
-
-# Configuración básica
-logging.basicConfig(
-    level=logging.INFO, # Establece el nivel mínimo (DEBUG, INFO, WARNING, ERROR, CRITICAL) [2, 5]
-    format='%(asctime)s - %(levelname)s - %(message)s', # Formato: Fecha - Nivel - Mensaje [6]
-    datefmt='%Y-%m-%d %H:%M:%S', # Formato de fecha personalizado [6]
-    filename='app.log', # Nombre del archivo para guardar los logs [2]
-    filemode='a' # 'w' para sobrescribir cada vez, 'a' para añadir [3]
-)
-
 TOKEN = os.environ.get('MY_TOKEN')
 
+# def setup_logging():
+    # TODo
+
 def start_bot():
+    if not TOKEN:
+        logging.error("NOt find Token")
+        exit(1)
     return telebot.TeleBot(TOKEN)
 
 def main():
-    logging.info("El programa ha iniciado")
+    # setup_logging()
+
     bot = start_bot()
     handlers.register_handlers(bot)
     bot.infinity_polling(
         restart_on_change=False,
         timeout=10,
-        logger_level=logging.ERROR
+        # logger_level=logging.ERROR
     )
-    # print(TOKEN)
+    # print(__name__)
 
 if __name__ == "__main__":
     main()
