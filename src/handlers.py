@@ -8,7 +8,11 @@ def get_msg_and_process(menssage, bot):
     text = menssage.text
     to_convert = utils.start_parser(text)
     # data = conversions.start_conversion(to_convert)
-    bot.reply_to(menssage, f"to_convert = {to_convert}")
+    print(f"to convert = {to_convert}")
+    if to_convert is False:
+        bot.reply_to(menssage, f"Not valid Unit")
+    else:
+        bot.reply_to(menssage, f"to_convert = {to_convert}")
 
 # @bot.message_handler(commands=['start', 'ole'])
 def register_handlers(bot):
